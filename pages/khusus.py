@@ -777,6 +777,12 @@ if "login_status" in st.session_state and st.session_state.login_status:
                                     }])
                                 ], ignore_index=True)
                                 st.success("Transaksi berhasil ditambahkan!")
+
+                            st.subheader("Tabel Jurnal Umum")
+                            st.dataframe(df.style.format({
+                                "Debit": "Rp {:,.2f}",
+                                "Kredit": "Rp {:,.2f}"
+                            }))
                             
                             st.subheader("Daftar Transaksi")
                             df = st.session_state['jurnal_umum']
